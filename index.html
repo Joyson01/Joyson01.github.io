@@ -16,12 +16,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/cat-logo.png" type="image/png" sizes="96x96">
   <script src="theme.js?v=4"></script>
-  <script src="motion.js?v=2" defer></script>
-  <link rel="stylesheet" href="styles.css?v=10">
+  <script src="motion.js?v=3" defer></script>
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
-<body>
+<body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top"><img src="assets/cat-logo.png" width="28" height="28" alt=""><span>Joyson Vadlya</span></a>
       <nav aria-label="Main navigation">
@@ -35,6 +35,7 @@
         <span class="theme-label">Light mode</span>
       </button>
     </div>
+    <div class="reading-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
@@ -84,7 +85,10 @@
               <a class="text-link project-link" href="https://github.com/Joyson01/SAMS">View source <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> for AttedDEL</span></a>
             </div>
             <div class="project-art hero-visual">
-              <img src="assets/atted-del-dashboard.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="AttedDEL dashboard with attendance totals and class schedules">
+              <a class="preview-link" href="assets/atted-del-dashboard.jpg">
+                <img src="assets/atted-del-dashboard.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="AttedDEL dashboard with attendance totals and class schedules">
+                <span class="preview-label">Enlarge screenshot <span aria-hidden="true">↗</span></span>
+              </a>
             </div>
           </article>
 
@@ -97,7 +101,10 @@
               <a class="text-link project-link" href="https://github.com/Joyson01/AI-Desktop-Assistant">View source <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> for MARUTI</span></a>
             </div>
             <div class="project-art">
-              <img src="assets/maruti-desktop.webp" width="940" height="600" loading="lazy" decoding="async" alt="MARUTI desktop window with a bilingual welcome message, command suggestions, and text input">
+              <a class="preview-link" href="assets/maruti-desktop.webp">
+                <img src="assets/maruti-desktop.webp" width="940" height="600" loading="lazy" decoding="async" alt="MARUTI desktop window with a bilingual welcome message, command suggestions, and text input">
+                <span class="preview-label">Enlarge screenshot <span aria-hidden="true">↗</span></span>
+              </a>
             </div>
           </article>
 
@@ -110,7 +117,10 @@
               <a class="text-link project-link" href="https://github.com/Joyson01/99-idea-puzzle">View source <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> for 99 Idea Puzzle</span></a>
             </div>
             <div class="project-art project-art-board">
-              <img src="assets/99-idea-puzzle.webp" width="500" height="500" loading="lazy" decoding="async" alt="Solo puzzle board with red, blue, and orange pieces and their matching targets">
+              <a class="preview-link" href="assets/99-idea-puzzle.webp">
+                <img src="assets/99-idea-puzzle.webp" width="500" height="500" loading="lazy" decoding="async" alt="Solo puzzle board with red, blue, and orange pieces and their matching targets">
+                <span class="preview-label">Enlarge screenshot <span aria-hidden="true">↗</span></span>
+              </a>
             </div>
           </article>
         </div>
@@ -192,5 +202,12 @@
   <footer class="site-footer">
     <div class="container footer-inner"><span>© 2026 Joyson Vadlya</span><a href="#top">Back to top <span class="arrow" aria-hidden="true">↑</span></a></div>
   </footer>
+  <dialog class="project-preview" aria-labelledby="preview-title">
+    <div class="preview-header">
+      <h2 id="preview-title">Project screenshot</h2>
+      <form method="dialog"><button type="submit" autofocus>Close</button></form>
+    </div>
+    <img class="preview-image" alt="">
+  </dialog>
 </body>
 </html>

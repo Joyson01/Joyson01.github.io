@@ -267,3 +267,70 @@ h2 { font-size: clamp(1.85rem,4.5vw,3.4rem); letter-spacing: -.055em; }
   :is(.button,.project-link,.report-link):active { translate: 0 1px; }
   .brand:hover img { rotate: -9deg; }
 }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--paper);
+}
+.skip-link:focus { z-index: 5; }
+section[id],article[id],main[id] { scroll-margin-top: 112px; }
+.reading-progress {
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--progress,0));
+  transform-origin: left;
+  pointer-events: none;
+}
+nav a[aria-current="location"] { color: var(--accent); text-decoration: underline; }
+
+.preview-link {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(100%,880px);
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.preview-link img { max-width: 100%; }
+.preview-link:hover .preview-label,.preview-link:focus-visible .preview-label { text-decoration: underline; }
+.preview-label { display: inline-flex; align-items: center; gap: 6px; }
+.project-preview {
+  width: min(1100px, calc(100% - 30px));
+  max-height: calc(100% - 30px);
+  padding: clamp(12px,2vw,24px);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.project-preview::backdrop { background: #050907d9; }
+.preview-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 14px; }
+.preview-header h2 { font-size: clamp(1.25rem,3vw,2rem); text-align: left; }
+.preview-header button {
+  min-height: 44px;
+  padding-inline: 15px;
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  color: var(--accent);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.preview-image { max-height: 72dvh; margin-inline: auto; object-fit: contain; border-radius: 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-preview[open] { animation: preview-in 300ms cubic-bezier(.2,.75,.25,1) both; }
+  .preview-label span { transition: transform 180ms ease; }
+  .preview-link:hover .preview-label span,.preview-link:focus-visible .preview-label span { transform: translate(3px,-3px); }
+
+  @keyframes preview-in {
+    from { opacity: .4; transform: translateY(14px) scale(.97); }
+    to { opacity: 1; transform: none; }
+  }
+}

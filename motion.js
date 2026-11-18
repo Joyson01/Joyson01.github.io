@@ -37,3 +37,52 @@ for (const surface of document.querySelectorAll(".terminal, .project-card")) {
 
   surface.addEventListener("pointerleave", () => surface.classList.remove("pointer-lit"));
 }
+
+const progress = document.querySelector(".reading-progress");
+const navigation = [...document.querySelectorAll("nav a[href^='#']")].map(link => ({
+  link,
+  section: document.querySelector(link.hash)
+}));
+let scrollUpdatePending = false;
+
+function updateScrollState() {
+  scrollUpdatePending = false;
+  const page = document.documentElement;
+  const range = page.scrollHeight - page.clientHeight;
+  const position = range > 0 ? Math.min(1, Math.max(0, scrollY / range)) : 0;
+  progress.style.setProperty("--progress", position);
+
+  const active = position >= 0.995 ? navigation.at(-1) :
+    navigation.findLast(({ section }) => section.getBoundingClientRect().top <= innerHeight * 0.32);
+  for (const item of navigation) {
+    if (item === active) item.link.setAttribute("aria-current", "location");
+    else item.link.removeAttribute("aria-current");
+  }
+}
+
+function scheduleScrollUpdate() {
+  if (scrollUpdatePending) return;
+  scrollUpdatePending = true;
+  requestAnimationFrame(updateScrollState);
+}
+
+window.addEventListener("scroll", scheduleScrollUpdate, { passive: true });
+window.addEventListener("resize", scheduleScrollUpdate);
+window.addEventListener("load", scheduleScrollUpdate);
+updateScrollState();
+
+const preview = document.querySelector(".project-preview");
+const previewTitle = document.querySelector("#preview-title");
+const previewImage = preview.querySelector(".preview-image");
+
+for (const link of document.querySelectorAll(".preview-link")) {
+  link.addEventListener("click", event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey ||
+        typeof preview.showModal !== "function") return;
+    event.preventDefault();
+    previewTitle.textContent = link.closest(".project-card").querySelector("h3").textContent;
+    previewImage.alt = link.querySelector("img").alt;
+    previewImage.src = link.href;
+    preview.showModal();
+  });
+}
