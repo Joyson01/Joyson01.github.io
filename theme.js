@@ -19,7 +19,7 @@
       const isDark = root.dataset.theme === "dark";
       label.textContent = isDark ? "Light mode" : "Dark mode";
       toggle.title = label.textContent;
-      themeColor.content = isDark ? "#181917" : "#faf9f5";
+      themeColor.content = isDark ? "#101114" : "#ffffff";
     }
 
     toggle.addEventListener("click", () => {
