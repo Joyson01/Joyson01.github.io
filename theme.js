@@ -16,9 +16,10 @@
     const themeColor = document.querySelector('meta[name="theme-color"]');
 
     function updateControls() {
-      label.textContent = root.dataset.theme === "dark" ? "Light mode" : "Dark mode";
+      const isDark = root.dataset.theme === "dark";
+      label.textContent = isDark ? "Light mode" : "Dark mode";
       toggle.title = label.textContent;
-      themeColor.content = getComputedStyle(root).getPropertyValue("--paper").trim();
+      themeColor.content = isDark ? "#10111e" : "#f7f8fc";
     }
 
     toggle.addEventListener("click", () => {
