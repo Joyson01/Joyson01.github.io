@@ -23,3 +23,17 @@ if (motionPreference.matches && "IntersectionObserver" in window) {
     document.getAnimations().forEach(animation => animation.cancel());
   });
 }
+
+const hoverPointer = matchMedia("(hover: hover) and (pointer: fine)");
+
+for (const surface of document.querySelectorAll(".terminal, .project-card")) {
+  surface.addEventListener("pointermove", event => {
+    if (!motionPreference.matches || !hoverPointer.matches || event.pointerType !== "mouse") return;
+    const bounds = surface.getBoundingClientRect();
+    surface.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
+    surface.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+    surface.classList.add("pointer-lit");
+  }, { passive: true });
+
+  surface.addEventListener("pointerleave", () => surface.classList.remove("pointer-lit"));
+}
