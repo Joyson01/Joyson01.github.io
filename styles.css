@@ -49,7 +49,7 @@ section[id],article[id] { scroll-margin-top: 24px; }
 .site-header { border-bottom: 1px solid var(--rule); }
 .header-inner,.footer-inner,.section-head,.contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .header-inner { min-height: 62px; }
-.brand { margin-right: auto; font-weight: 680; letter-spacing: -.035em; white-space: nowrap; }
+.brand { display: inline-flex; align-items: center; gap: 8px; margin-right: auto; font-weight: 680; letter-spacing: -.035em; white-space: nowrap; }
 .brand,nav a { text-decoration: none; }
 nav,.hero-links,.contact-links { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(12px,2.5vw,30px); }
 nav a,.theme-toggle,.text-link,.button,.report-link,.footer-inner { font-size: .875rem; }
