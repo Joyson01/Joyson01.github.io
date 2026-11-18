@@ -113,3 +113,34 @@ h2 { font: 400 clamp(2.1rem,4vw,3.8rem)/1.08 var(--display); letter-spacing: -.0
   .about-section,.experience-grid { gap:0; }
   .nav-contact .arrow { display:none; }
 }
+
+.hero h1 em { color: var(--accent); }
+.hero-kicker { display: flex; align-items: center; gap: 10px; }
+.hero-kicker .signal { width: 19px; height: 1px; background: var(--accent); }
+.project-art {
+  background-image: radial-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.project-art img { filter: drop-shadow(0 8px 16px #0003); }
+.hero-links .button-primary { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+section[id], article[id] { scroll-margin-top: 24px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .hero-copy > * { animation: introduction 620ms cubic-bezier(.2,.75,.25,1) backwards; }
+  .hero h1 { animation-delay: 75ms; }
+  .hero-role, .hero-description { animation-delay: 150ms; }
+  .hero-links { animation-delay: 225ms; }
+  .arrow { display: inline-block; transition: transform 180ms ease-out; }
+  a:hover .arrow, a:focus-visible .arrow { transform: translateX(3px); }
+  .project-art img { transition: transform 280ms cubic-bezier(.2,.75,.25,1); }
+
+  @keyframes introduction {
+    from { opacity: .35; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .project-card:hover .project-art img,
+  .project-card:focus-within .project-art img { transform: translateY(-4px); }
+}
