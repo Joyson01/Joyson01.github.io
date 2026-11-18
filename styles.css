@@ -151,3 +151,78 @@ h2 { font-size: clamp(1.85rem,4.5vw,3.4rem); letter-spacing: -.055em; }
   .project-card:hover .project-art img,
   .project-card:focus-within .project-art img { transform: translateY(-4px); }
 }
+
+:root {
+  --paper: #0b100e;
+  --feature: #11211a;
+  --accent: #91f7aa;
+  --primary: #91f7aa;
+  --hero-glow: #12291d;
+  --screen: #101c16;
+  --screen-rule: #3d624d;
+  --grid-line: #91f7aa10;
+}
+:root[data-theme="light"] {
+  --screen: #eff6f0;
+  --screen-rule: #aec7b5;
+  --grid-line: #20634414;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0,1.25fr) minmax(0,1fr);
+  align-items: center;
+  gap: clamp(24px,5vw,76px);
+  padding-inline: max(18px, calc((100% - 1140px) / 2), 4vw);
+  background:
+    radial-gradient(ellipse at 80% 28%, var(--hero-glow), transparent 65%),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(var(--grid-line) 1px,transparent 1px) 0 0 / 32px 32px;
+  text-align: left;
+}
+.hero-copy { margin: 0; }
+.hero h1 { font-size: clamp(3rem,6.9vw,6.3rem); }
+.hero-description { margin-inline: 0; }
+.hero-links { justify-content: start; }
+.terminal {
+  background: var(--screen);
+  border: 1px solid var(--screen-rule);
+  border-radius: 16px;
+  font: 500 .85rem/1.6 "IBM Plex Mono", monospace;
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 19px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--screen-rule);
+}
+.terminal-lights {
+  width: 6px;
+  height: 6px;
+  margin-right: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 9px 0 var(--screen-rule),18px 0 var(--screen-rule);
+}
+.terminal-body { padding: clamp(18px,3vw,32px); }
+.terminal-command,.terminal a { color: var(--accent); }
+.terminal dl { margin-block: 15px 22px; }
+.terminal dl div {
+  display: grid;
+  grid-template-columns: minmax(100px,.6fr) 1fr;
+  gap: 8px;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--screen-rule);
+}
+.terminal dt { color: var(--muted); }
+.terminal a { display: inline-flex; align-items: center; gap: 6px; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-block: 55px; gap: 30px; }
+  .terminal { width: min(100%, 490px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .terminal { animation: introduction 680ms cubic-bezier(.2,.75,.25,1) 150ms backwards; }
+}
