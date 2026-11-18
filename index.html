@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10111e">
+  <meta name="theme-color" content="#181917">
   <title>Joyson Vadlya · Cybersecurity & Software</title>
   <meta name="description" content="Joyson Vadlya is a Computer Engineering student focused on cybersecurity and software development. Explore his projects, experience, and education.">
   <link rel="canonical" href="https://joyson01.me/">
@@ -15,15 +15,14 @@
   <meta property="og:image:alt" content="Attendance overview in the AttedDEL dashboard">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="theme.js?v=1"></script>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="theme.js?v=2"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="brand" href="#top"><span class="monogram" aria-hidden="true">JV</span><span>Joyson Vadlya</span></a>
+      <a class="brand" href="#top"><span>Joyson Vadlya</span></a>
       <nav aria-label="Main navigation">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
@@ -40,21 +39,16 @@
   <main id="main">
     <section class="hero container" aria-labelledby="intro-title">
       <div class="hero-copy">
-        <p class="eyebrow hero-kicker"><span class="signal" aria-hidden="true"></span>Computer Engineering Student</p>
-        <h1 id="intro-title">Joyson<br>Vadlya<span>.</span></h1>
-        <p class="hero-role">Cybersecurity &amp; software development</p>
-        <p class="hero-description">I build tools with Python and Linux and practice security analysis in hands-on labs.</p>
+        <p class="eyebrow hero-kicker"><span class="signal" aria-hidden="true"></span>Computer engineering · Maharashtra, India</p>
+        <h1 id="intro-title">Joyson <em>Vadlya</em></h1>
+        <p class="hero-role">I build software and study how to secure it.</p>
+        <p class="hero-description">I’m a computer engineering student working with Python and Linux, from classroom attendance software to voice-controlled desktop tools.</p>
         <div class="hero-links">
           <a class="button button-primary" href="#projects">Explore my work <span class="arrow" aria-hidden="true">↓</span></a>
           <a class="button button-ghost" href="https://github.com/Joyson01">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <figure class="hero-visual">
-        <img src="assets/atted-del-dashboard.jpg" width="1280" height="800" fetchpriority="high" alt="Attendance overview with roster totals, scheduled classes, and live recognition status">
-        <figcaption>
-          <a class="text-link" href="#atted-del">AttedDEL dashboard <span class="arrow" aria-hidden="true">↓</span></a>
-        </figcaption>
-      </figure>
+
     </section>
 
     <section class="project-section" id="projects" aria-labelledby="projects-title">
@@ -66,14 +60,15 @@
 
         <div class="project-grid">
           <article class="project-card" id="atted-del">
-            <div class="project-art">
-              <img src="assets/atted-del-reports.webp" width="960" height="481" loading="lazy" decoding="async" alt="Attendance reports showing summary metrics and a class performance table">
+            <div class="project-art hero-visual">
+              <img src="assets/atted-del-dashboard.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="AttedDEL dashboard with attendance totals and class schedules">
             </div>
             <div class="project-info">
               <p class="eyebrow project-category">Full-stack application</p>
               <h3>AttedDEL</h3>
-              <p class="project-description">A classroom attendance workspace with roster review, reporting, and photo-based face detection.</p>
+              <p class="project-description">Faculty can review a class roster, correct individual records, and export attendance reports. A separate photo tool locates faces without recording attendance.</p>
               <ul class="tags" aria-label="Technologies"><li>React</li><li>FastAPI</li><li>OpenCV</li></ul>
+              <a class="report-link" href="assets/atted-del-reports.webp">See the reporting screen ↗</a>
               <a class="text-link project-link" href="https://github.com/Joyson01/SAMS">View source <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> for AttedDEL</span></a>
             </div>
           </article>
@@ -85,7 +80,7 @@
             <div class="project-info">
               <p class="eyebrow project-category">Desktop automation</p>
               <h3>MARUTI</h3>
-              <p class="project-description">A Linux desktop assistant that takes voice and text commands in English and Hindi to automate everyday tasks.</p>
+              <p class="project-description">Open an app, adjust the volume, or search the web using English or Hindi commands. A text input keeps the assistant usable when a microphone is unavailable.</p>
               <ul class="tags" aria-label="Technologies"><li>Python</li><li>PySide6</li><li>Linux</li></ul>
               <a class="text-link project-link" href="https://github.com/Joyson01/AI-Desktop-Assistant">View source <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> for MARUTI</span></a>
             </div>
