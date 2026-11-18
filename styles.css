@@ -363,3 +363,83 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
     1%, 55% { border-inline-end-color: currentColor; }
   }
 }
+
+body { padding-bottom: 76px; }
+html { scroll-padding-bottom: 76px; }
+.header-inner { flex-wrap: nowrap; padding-block: 0; }
+.header-inner .brand { width: auto; }
+.section-dock {
+  position: fixed;
+  z-index: 6;
+  left: 50%;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 20px);
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: clamp(0px, 1.2vw, 12px);
+  margin: 0;
+  padding: 4px;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  background: var(--paper);
+  background: color-mix(in srgb, var(--paper) 93%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 6px 24px #0003;
+}
+.section-dock a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 clamp(5px,1.1vw,15px);
+  border-radius: 13px;
+  font-size: clamp(.72rem,1.5vw,.875rem);
+  white-space: nowrap;
+}
+.section-dock a[aria-current="location"] {
+  background: var(--screen);
+  text-decoration: none;
+}
+.section-dock .arrow { display: none; }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vw, 58px);
+  padding: clamp(56px,8vw,110px) 18px clamp(54px,7vw,96px);
+  overflow: clip;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 24%,var(--hero-glow),transparent 67%);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: repeating-radial-gradient(
+    circle at 50% clamp(165px,22vw,300px),
+    var(--grid-line) 0 1px,
+    transparent 1px 70px
+  );
+  mask-image: linear-gradient(black 30%, transparent 88%);
+  pointer-events: none;
+}
+.hero-copy { width: min(100%, 780px); }
+.hero-mark { margin: 0 auto 18px; }
+.hero-description { margin-inline: auto; }
+.hero-links { justify-content: center; }
+.hero .terminal { width: min(100%, 460px); text-align: left; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before { animation: orbit-in 1100ms ease-out both; }
+  .section-dock a { transition: color 180ms ease, background-color 180ms ease; }
+
+  @keyframes orbit-in {
+    from { opacity: 0; scale: .97; }
+    to { opacity: 1; scale: 1; }
+  }
+}
