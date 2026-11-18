@@ -334,3 +334,32 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
     to { opacity: 1; transform: none; }
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .typed-command {
+    display: inline-block;
+    width: 13ch;
+    box-sizing: content-box;
+    overflow: hidden;
+    border-inline-end: 2px solid transparent;
+    vertical-align: bottom;
+    white-space: nowrap;
+    animation:
+      type-command 780ms steps(13, end) 340ms backwards,
+      terminal-caret 240ms steps(1, end) 340ms 4;
+  }
+
+  .terminal-body:not(:focus-within) > :is(dl,a) {
+    animation: introduction 360ms ease-out 1120ms backwards;
+  }
+
+  @keyframes type-command {
+    from { width: 0; }
+    to { width: 13ch; }
+  }
+
+  @keyframes terminal-caret {
+    0%, 100% { border-inline-end-color: transparent; }
+    1%, 55% { border-inline-end-color: currentColor; }
+  }
+}
